@@ -5,6 +5,14 @@ A lightweight, frictionless, native Windows utility for creating timestamped fol
 > 🍎 `Looking for the Mac Edition?`
 > If you are on a Mac and need the native POSIX `tar` and Bash-based version of this tool with macOS Finder Quick Actions, check out the [Smart Backup & Zip (Mac Edition)](https://github.com/sucom/bak-zip-mac) repository.
 
+OR
+
+
+> 🔌 `Prefer to stay in your IDE?`
+> If you'd rather run smart backups directly from your editor without touching the OS context menus or the terminal, this tool was originally born as an editor extension! You can grab it here:
+> * **[VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=spajs.backup-folder)** (For Visual Studio Code)
+> * **[Open VSX Registry](https://open-vsx.org/extension/SPAjs/backup-folder)** (For VSCodium, Cursor, Windsurf, and Antigravity)
+
 ## ✨ Features
 
 * **100% Native Windows:** No third-party zipping utilities required. Built entirely on `robocopy` and Windows `tar.exe`.
