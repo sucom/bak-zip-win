@@ -114,7 +114,7 @@ if not "%OVERRIDE_TARGET%"=="" (
 if "!DEST_ROOT!"=="" (
     set "DED_TARGET=%BACKUP_TARGET%"
     if "%IS_ZIP%"=="true" if not "%ZIP_TARGET%"=="" set "DED_TARGET=%ZIP_TARGET%"
-    
+
     if not "!DED_TARGET!"=="" (
         echo !DED_TARGET!| findstr /r "^[a-zA-Z]:\\" >nul
         if not errorlevel 1 (
@@ -150,11 +150,8 @@ mkdir "%BAK_DIR%"
 set "ROBO_EXCLUDES="
 
 :: Parse config exclusions
-if not "%EXCLUDES%"=="" (
-    set "CLEAN_EX=%EXCLUDES:,= %"
-    for %%x in (!CLEAN_EX!) do (
-        set "ROBO_EXCLUDES=!ROBO_EXCLUDES! %%x"
-    )
+if not "!EXCLUDES!"=="" (
+    set "ROBO_EXCLUDES=!EXCLUDES:,= !"
 )
 
 :: Parse .gitignore
@@ -187,12 +184,12 @@ if %RC% GEQ 8 (
 if "%IS_ZIP%"=="true" (
     echo [INFO] Compressing backup natively...
     set "ZIP_NAME=%BAK_NAME%.zip"
-    
+
     pushd "%DEST_ROOT%"
     tar.exe -a -c -f "!ZIP_NAME!" "%BAK_NAME%"
     set "ZIP_RC=!ERRORLEVEL!"
     popd
-    
+
     if !ZIP_RC! EQU 0 (
         rmdir /s /q "%BAK_DIR%"
         echo [SUCCESS] Zipped to: %DEST_ROOT%\!ZIP_NAME!
